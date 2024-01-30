@@ -30,7 +30,7 @@
     "orientation": "portrait",
     "icon": "./path/to/your/app-icon.png",
     "splash": {
-      "image": "./path/to/your/splash.png",
+      "image": "./images/grocey-background.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     }
