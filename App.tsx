@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <ImageBackground 
+        source={require('./images/grocey-background.jpg')}
+        style={styles.imageBackground}  // Use the style prop here
+      >
+        <Text style={styles.text}>Open up App.tsx to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </ImageBackground>
     </View>
   );
 }
@@ -13,8 +18,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+  },
+  imageBackground: {
+    flex: 1,
+    resizeMode: 'cover',
     justifyContent: 'center',
+  },
+  text: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
