@@ -22,5 +22,17 @@
     "@types/react": "~18.2.45",
     "typescript": "^5.1.3"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "name": "MyShoppingListApp",
+    "slug": "my-shopping-list-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./path/to/your/app-icon.png",
+    "splash": {
+      "image": "./path/to/your/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    }
+  }
 }

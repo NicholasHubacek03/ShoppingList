@@ -8,7 +8,7 @@ export default function App() {
         source={require('./images/grocey-background.jpg')}
         style={styles.imageBackground}  // Use the style prop here
       >
-        <Text style={styles.text}>Open up App.tsx to start working on your app!</Text>
+        <Text style={styles.text}>Shopping List</Text>
         <StatusBar style="auto" />
       </ImageBackground>
     </View>
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    
   },
   text: {
     color: 'white',
