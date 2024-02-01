@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native';
 
+// type Props {}
 interface ItoShop{
   text: string;
   completed: boolean;
@@ -28,13 +29,30 @@ export default function App() {
                                           />
           <Button title='add Grocery' onPress={() => {}}/>
             </View>
-              {error && <Text>Error: Input field is empty...</Text>}
-              <Text>Your Shopping List :</Text>
-        <StatusBar style="auto" />
-      </ImageBackground>
-    </View>
-  );
-}
+                {error && <Text>Error: Input field is empty...</Text>}
+                  <Text>Your Shopping List :</Text>
+                    {toDoShop.length === 0 && <Text>No Groceries</Text>}
+                      {toDoShop.map((toDo: ItoShop, index: number) => (
+                        <View key={`${index}_${toDo.text}`}>
+                          {/* <Text
+                          style={[
+                            styles.
+                            { textDecorationLine: toDo.completed ? "line-through" : "none" }
+                          ]}>
+                          {toDo.text}
+                        </Text> */}
+                        <Button
+                          title={toDo.completed ? "Completed" : "Complete"}
+                          onPress={() => { /* Implement complete grocery logic */ }}
+                        />
+                        <Button title="X" onPress={() => { /* Implement delete grocery logic */ }} color="crimson" />
+                      </View>
+                    ))}
+                  </ImageBackground>
+                  <StatusBar style="auto" />
+                </View>
+              );
+            }
 
 const styles = StyleSheet.create({
   container: {
@@ -47,7 +65,7 @@ const styles = StyleSheet.create({
 
   },
     titleContainer: {
-      paddingTop: 50, // Adjust the paddingTop to move the title down from the top
+      paddingTop: 50,
       alignItems: 'center',
   },
   text: {
