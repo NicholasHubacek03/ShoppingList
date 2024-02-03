@@ -18,8 +18,14 @@ export default function App() {
     setToShops([...toDoShop, {text : value, completed: false}]);
   else showError(true);
   setValue("");
-  }
+  };
   
+  const removeItem = (index: number): void => {
+    const newToShopList = [...toDoShop];
+    newToShopList.splice(index, 1);
+    setToShops(newToShopList);
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground 
