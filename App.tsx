@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native';
 
-// type Props {}
 interface ItoShop{
   text: string;
   completed: boolean;
@@ -13,6 +12,13 @@ export default function App() {
   const [value, setValue] = useState<string>("");
   const [toDoShop, setToShops] = useState<ItoShop[]>([]);
   const [error, showError] = useState<boolean>(false);
+
+  const handleSubmit = (): void => {
+    if(value.trim())
+    setToShops([...toDoShop, {text : value, completed: false}]);
+  else showError(true);
+  setValue("");
+  }
   
   return (
     <View style={styles.container}>
