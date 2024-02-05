@@ -55,13 +55,13 @@ export default function App() {
                     {toDoShop.length === 0 && <Text>No Groceries</Text>}
                       {toDoShop.map((toDo: ItoShop, index: number) => (
                         <View key={`${index}_${toDo.text}`}>
-                          {/* <Text
+                        <Text
                           style={[
-                            styles.
-                            { textDecorationLine: toDo.completed ? "line-through" : "none" }
-                          ]}>
-                          {toDo.text}
-                        </Text> */}
+                            styles.task,
+                              { textDecorationLine: toDo.completed ? "line-through" : "none" }
+                                  ]}>
+                              {toDo.text}
+                              </Text>
                         <Button
                           title={toDo.completed ? "Completed" : "Complete"}
                           onPress={() => {toggleComplete(index)}}
