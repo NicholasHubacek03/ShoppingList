@@ -42,10 +42,13 @@ export default function App() {
               <Text style={styles.text}>Shopping List</Text>
                   <TextInput 
                     placeholder='Enter shopping items'
-                      value=''
-                        onChange={e => {}}
+                    value={value}
+                    onChangeText={e => {
+                      setValue(e);
+                      showError(false);
+                    }}
                                           />
-          <Button title='add Grocery' onPress={() => {}}/>
+          <Button title='add Grocery' onPress={handleSubmit}/>
             </View>
                 {error && <Text>Error: Input field is empty...</Text>}
                   <Text>Your Shopping List :</Text>
@@ -61,9 +64,9 @@ export default function App() {
                         </Text> */}
                         <Button
                           title={toDo.completed ? "Completed" : "Complete"}
-                          onPress={() => { /* Implement complete grocery logic */ }}
+                          onPress={() => {toggleComplete(index)}}
                         />
-                        <Button title="X" onPress={() => { /* Implement delete grocery logic */ }} color="crimson" />
+                        <Button title="X" onPress={() => {removeItem(index)}} color="crimson" />
                       </View>
                     ))}
                   </ImageBackground>
