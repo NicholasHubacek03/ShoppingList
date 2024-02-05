@@ -26,6 +26,12 @@ export default function App() {
     setToShops(newToShopList);
   }
 
+  const toggleComplete = (index: number): void => {
+    const newToShopList = [...toDoShop];
+    newToShopList[index].completed = !newToShopList[index].completed
+    setToShops(newToShopList)
+  }
+
   return (
     <View style={styles.container}>
       <ImageBackground 
