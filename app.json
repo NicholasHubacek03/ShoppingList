@@ -4,10 +4,10 @@
     "slug": "MyShoppingList",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/LEGO_logo.svg.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/LEGO_logo.svg.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

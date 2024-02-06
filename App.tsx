@@ -8,7 +8,6 @@ interface ItoShop{
 }
 
 export default function App() {
-
   const [value, setValue] = useState<string>("");
   const [toDoShop, setToShops] = useState<ItoShop[]>([]);
   const [error, showError] = useState<boolean>(false);
