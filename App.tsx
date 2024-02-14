@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
 import { Button, ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native';
 
 interface ItoShop{
@@ -13,22 +14,52 @@ export default function App() {
   const [error, showError] = useState<boolean>(false);
 
   const handleSubmit = (): void => {
-    if(value.trim())
+    if(value.trim()) {
     setToShops([...toDoShop, {text : value, completed: false}]);
-  else showError(true);
-  setValue("");
+    saveData();
+    } else { 
+      showError(true);
+    }
+        setValue("");
   };
+
+  useEffect(() => {
+    loadData();
+  }, []);
   
+   const loadData = async () => {
+    try {
+      const data = await AsyncStorage.getItem('toDoShop');
+      if (data !== null) {
+        setToShops(JSON.parse(data));
+      }
+    } catch (error) {
+      console.error('Error loading data from AsyncStorage:', error);
+    }
+  };
+
+  const saveData = async () => {
+    try {
+      await AsyncStorage.setItem('toDoShop', JSON.stringify(toDoShop));
+    } catch (error) {
+      console.error('Error saving data to AsyncStorage:', error);
+    }
+  };
+
+  
+
   const removeItem = (index: number): void => {
     const newToShopList = [...toDoShop];
     newToShopList.splice(index, 1);
     setToShops(newToShopList);
+    saveData();
   }
 
   const toggleComplete = (index: number): void => {
     const newToShopList = [...toDoShop];
     newToShopList[index].completed = !newToShopList[index].completed
     setToShops(newToShopList)
+    saveData();
   }
 
   return (
@@ -95,3 +126,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+function loadData() {
+  throw new Error('Function not implemented.');
+}
+
