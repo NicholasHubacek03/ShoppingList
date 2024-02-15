@@ -27,11 +27,13 @@ export default function App() {
     loadData();
   }, []);
   
-   const loadData = async () => {
+  const loadData = async () => {
     try {
-      const data = await AsyncStorage.getItem('toDoShop');
-      if (data !== null) {
-        setToShops(JSON.parse(data));
+      if (toDoShop.length === 0) {
+        const data = await AsyncStorage.getItem('toDoShop');
+        if (data !== null) {
+          setToShops(JSON.parse(data));
+        }
       }
     } catch (error) {
       console.error('Error loading data from AsyncStorage:', error);
@@ -77,6 +79,7 @@ export default function App() {
                       setValue(e);
                       showError(false);
                     }}
+                      
                                           />
           <Button title='add Grocery' onPress={handleSubmit}/>
             </View>
@@ -109,6 +112,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,    
     justifyContent: 'center',
+    
   },
   imageBackground: {
     flex: 1,
@@ -125,6 +129,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    color: 'white',
+  },
+  button: {
+    marginTop: 10,
+    backgroundColor: 'green',
+    padding: 10,
+    borderRadius: 5,
+  },  
+  
 });
 function loadData() {
   throw new Error('Function not implemented.');
