@@ -87,7 +87,7 @@ export default function App() {
                   <Text>Your Shopping List :</Text>
                     {toDoShop.length === 0 && <Text>No Groceries</Text>}
                       {toDoShop.map((toDo: ItoShop, index: number) => (
-                        <View key={`${index}_${toDo.text}`}>
+                        <View key={`${index}_${toDo.text}`} style={styles.itemContainer}>
                         <Text
                           style={[
                             styles.task,
@@ -95,17 +95,19 @@ export default function App() {
                                   ]}>
                               {toDo.text}
                               </Text>
+                              <View style={styles.buttonsContainer}>
                         <Button
                           title={toDo.completed ? "Completed" : "Complete"}
                           onPress={() => {toggleComplete(index)}}
                         />
                         <Button title="X" onPress={() => {removeItem(index)}} color="crimson" />
+                        </View>
                       </View>
-                    ))}
-                  </ImageBackground>
-                  <StatusBar style="auto" />
-                </View>
-              );
+                      ))}
+                    </ImageBackground>
+                    <StatusBar style="auto" />
+                  </View>
+                );
             }
 
 const styles = StyleSheet.create({
@@ -145,6 +147,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     padding: 10,
     borderRadius: 5,
+  },
+  itemContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  task: {
+    flex: 1,
+    color: 'white',
+    fontSize: 18,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
   },  
   
 });
