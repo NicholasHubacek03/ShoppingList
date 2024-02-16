@@ -31,29 +31,25 @@ export default function App() {
     saveData();
   }, [toDoShop]);
 
-  
+
   const loadData = async () => {
     try {
-      if (toDoShop.length === 0) {
-        const data = await AsyncStorage.getItem('toDoShop');
-        if (data !== null) {
-          setToShops(JSON.parse(data));
-        }
+      const data = await AsyncStorage.getItem('toDoShop');
+      if (data !== null && toDoShop.length === 0) {
+        setToShops(JSON.parse(data));
       }
     } catch (error) {
       console.error('Error loading data from AsyncStorage:', error);
     }
   };
 
-  const saveData = async () => {
+  const saveData = async (): Promise<void> => {
     try {
       await AsyncStorage.setItem('toDoShop', JSON.stringify(toDoShop));
     } catch (error) {
       console.error('Error saving data to AsyncStorage:', error);
     }
   };
-
-  
 
   const removeItem = (index: number): void => {
     const newToShopList = [...toDoShop];
