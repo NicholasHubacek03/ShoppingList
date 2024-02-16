@@ -13,14 +13,15 @@ export default function App() {
   const [toDoShop, setToShops] = useState<ItoShop[]>([]);
   const [error, showError] = useState<boolean>(false);
 
-  const handleSubmit = (): void => {
-    if(value.trim()) {
-    setToShops([...toDoShop, {text : value, completed: false}]);
-    saveData();
-    } else { 
+  const handleSubmit = async (): Promise<void> => {
+    if (value.trim()) {
+      setToShops([...toDoShop, { text: value, completed: false }]);
+      fadeIn();
+      await saveData();
+    } else {
       showError(true);
     }
-        setValue("");
+    setValue("");
   };
 
   useEffect(() => {
@@ -167,6 +168,10 @@ const styles = StyleSheet.create({
   
 });
 function loadData() {
+  throw new Error('Function not implemented.');
+}
+
+function fadeIn() {
   throw new Error('Function not implemented.');
 }
 
