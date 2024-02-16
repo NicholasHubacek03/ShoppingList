@@ -27,6 +27,11 @@ export default function App() {
     loadData();
   }, []);
   
+  useEffect(() => {
+    saveData();
+  }, [toDoShop]);
+
+  
   const loadData = async () => {
     try {
       if (toDoShop.length === 0) {
