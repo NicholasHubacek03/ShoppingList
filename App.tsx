@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
   },
   text: {
-    color: 'white',
+    color: 'black',
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
-    color: 'white',
+    color: 'black',
   },
   button: {
     marginTop: 10,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   },
   task: {
     flex: 1,
-    color: 'white',
+    color: 'black',
     fontSize: 18,
   },
   buttonsContainer: {
