@@ -4,10 +4,10 @@
     "slug": "MyShoppingList",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/LEGO_logo.svg.png",
+    "icon": "./assets/ShoppingList.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/LEGO_logo.svg.png",
+      "image": "./assets/ShoppingList.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,7 +25,7 @@
       "package": "com.nhubacek.MyShoppingList"
     },
     "web": {
-      "favicon": "./assets/LEGO_logo.svg.png"
+      "favicon": "./assets/ShoppingList.png"
     },
     "extra": {
       "eas": {
